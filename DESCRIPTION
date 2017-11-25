@@ -1,0 +1,10 @@
+Package: trelloRtests
+Title: Informal Tests For trelloR
+Version: 0.0.0.9000
+Authors@R: person("Jakub", "Chromec", email = "chromec.jakub@gmail.com", role = c("aut", "cre"))
+Description: A collection of informal tests for the trelloR package. Probably
+    not terribly useful unless you are a package developer.
+Depends: R (>= 3.4.2)
+License: MIT
+Encoding: UTF-8
+LazyData: true
