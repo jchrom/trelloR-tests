@@ -4,7 +4,12 @@ Version: 0.0.0.9000
 Authors@R: person("Jakub", "Chromec", email = "chromec.jakub@gmail.com", role = c("aut", "cre"))
 Description: A collection of informal tests for the trelloR package. Probably
     not terribly useful unless you are a package developer.
-Depends: R (>= 3.4.2)
+Depends: 
+    R (>= 3.4.2),
+    trelloR (>= 0.3.0),
+    httr (>= 1.3.0),
+    testthat (>= 1.0.0)
 License: MIT
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
