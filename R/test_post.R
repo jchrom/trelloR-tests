@@ -2,10 +2,14 @@
 #'
 #' Create a board with two lists, and a card with a label, a checklist and
 #' a member on it.
+#' @param model_data Leave NULL, this is just for compatibility
 #' @importFrom httr BROWSE
 #' @export
 
-test_post = function() {
+test_post = function(model_data) {
+
+  if (is.null(model_data))
+    message("It's ok")
 
   token = test_token()
 
@@ -15,6 +19,8 @@ test_post = function() {
     body = list(defaultLists = "false"),
     token = token
   )
+
+  BROWSE(url = board$url)
 
   message("\n\nAdding a top list")
   list_top = add_list(
@@ -82,10 +88,7 @@ test_post = function() {
     token = token
   )
 
-  model_list = ls()[!grepl("token", ls())]
-  model_file = paste0("dev/", gsub(":", "", Sys.time()), " POST.RData")
-  save(list = model_list, file = model_file)
+  message("\n\nBoard URL: ", board$url)
 
-  BROWSE(url = board$url)
-  board$url
+  mget(ls()[!grepl("(token|model_data)", ls())])
 }

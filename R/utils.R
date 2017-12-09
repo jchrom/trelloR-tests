@@ -16,3 +16,13 @@ model_name = function(title = "", time = FALSE) {
     if(time) paste0(", ", Sys.time()) else NULL
   )
 }
+
+pop_env = function(env) {
+  as.environment(env)
+  for (this_name in names(env))
+    assign(
+      x = this_name,
+      value = env[[this_name]],
+      pos = parent.frame()
+    )
+}

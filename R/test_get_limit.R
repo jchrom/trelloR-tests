@@ -4,10 +4,12 @@
 #' @param url Public board URL
 #' @export
 
-test_get_limit = function(url = NULL) {
+test_get_limit = function(url = NULL, model_data = NULL) {
 
   if (is.null(url))
     url = "https://trello.com/b/nC8QJJoZ/trello-development-roadmap"
+
+  pop_env(model_data)
 
   board.id  = get_id_board(url)
 
@@ -29,7 +31,5 @@ test_get_limit = function(url = NULL) {
     error = function(e) message(e$message)
   )
 
-  model_list = ls(pattern = "^(df\\.|rs\\.).+")
-  model_file = paste0("dev/", gsub(":", "", Sys.time()), " GET limit.RData")
-  save(list = model_list, file = model_file)
+  mget(ls()[!grepl("token", ls())])
 }

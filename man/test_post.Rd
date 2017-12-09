@@ -4,7 +4,10 @@
 \alias{test_post}
 \title{Test POST wrappers}
 \usage{
-test_post()
+test_post(model_data)
+}
+\arguments{
+\item{model_data}{Leave NULL, this is just for compatibility}
 }
 \description{
 Create a board with two lists, and a card with a label, a checklist and

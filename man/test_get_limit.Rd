@@ -4,7 +4,7 @@
 \alias{test_get_limit}
 \title{Test GET limit}
 \usage{
-test_get_limit(url = NULL)
+test_get_limit(url = NULL, model_data = NULL)
 }
 \arguments{
 \item{url}{Public board URL}
