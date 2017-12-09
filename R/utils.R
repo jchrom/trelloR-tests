@@ -1,10 +1,15 @@
 # UTILS
 
-test_token = function(appname = "trelloRtests", key = "key", secret = "secret") {
+test_token = function(appname = "trelloRtests", key = NULL, secret = NULL) {
+
+  if (is.null(key))
+    key = secrettool::password_lookup("trello", "key")
+
+  if (is.null(secret))
+    secret = secrettool::password_lookup("trello", "secret")
+
   get_token(
-    key = secrettool::password_lookup("trello", key),
-    secret = secrettool::password_lookup("trello", secret),
-    appname = appname,
+    key = key, secret = secret, appname = appname,
     scope = c("read", "write"),
     expiration = "never"
   )
@@ -17,12 +22,13 @@ model_name = function(title = "", time = FALSE) {
   )
 }
 
-pop_env = function(env) {
+pop_env = function(env, to = parent.frame()) {
   as.environment(env)
   for (this_name in names(env))
     assign(
       x = this_name,
       value = env[[this_name]],
-      pos = parent.frame()
+      pos = to
     )
 }
+
