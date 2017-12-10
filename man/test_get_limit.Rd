@@ -8,6 +8,8 @@ test_get_limit(url = NULL, model_data = NULL)
 }
 \arguments{
 \item{url}{Public board URL}
+
+\item{model_data}{Model data (leave NULL)}
 }
 \description{
 Test GET limit.

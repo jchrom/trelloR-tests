@@ -1,20 +1,5 @@
 # UTILS
 
-test_token = function(appname = "trelloRtests", key = NULL, secret = NULL) {
-
-  if (is.null(key))
-    key = secrettool::password_lookup("trello", "key")
-
-  if (is.null(secret))
-    secret = secrettool::password_lookup("trello", "secret")
-
-  get_token(
-    key = key, secret = secret, appname = appname,
-    scope = c("read", "write"),
-    expiration = "never"
-  )
-}
-
 model_name = function(title = "", time = FALSE) {
   paste0(
     "Test: ", title,
@@ -32,3 +17,18 @@ pop_env = function(env, to = parent.frame()) {
     )
 }
 
+#' Read token
+#'
+#' Read cached token
+#' @param loc File to read the token from
+#' @export
+
+read_token = function(loc = ".httr-oauth") {
+  tryCatch(
+    readRDS(loc)[[1]],
+    error = function(e) {
+      message(e$message)
+      message("Please call trelloR::get_token() to make a new token")
+    }
+  )
+}

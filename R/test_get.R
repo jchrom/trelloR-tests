@@ -7,7 +7,7 @@
 
 test_get = function(model_data) {
 
-  token = test_token()
+  token = read_token()
 
   pop_env(model_data)
 

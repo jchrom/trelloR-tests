@@ -2,6 +2,7 @@
 #'
 #' Test GET limit.
 #' @param url Public board URL
+#' @param model_data Model data (leave NULL)
 #' @export
 
 test_get_limit = function(url = NULL, model_data = NULL) {

@@ -11,7 +11,7 @@ test_post = function(model_data) {
   if (is.null(model_data))
     message("It's ok")
 
-  token = test_token()
+  token = read_token()
 
   message("\n\nAdding board")
   board = add_board(
